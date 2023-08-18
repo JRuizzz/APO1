@@ -175,4 +175,34 @@ public class Controller {
 	
 		return msg;
 	}
+
+	//correcion de errores
+	public String getUsersPerCategory() {
+		int silverUsers = 0;
+		int goldUsers = 0;
+		int diamondUsers = 0;
+	
+		for (User user : users) {
+			if (user instanceof Premium) {
+				Category category = ((Premium) user).getCategory();
+				switch (category) {
+					case SILVER:
+						silverUsers++;
+						break;
+					case GOLD:
+						goldUsers++;
+						break;
+					case DIAMOND:
+						diamondUsers++;
+						break;
+				}
+			}
+		}
+	
+		String msg = "Usuarios en cada categoría:\n";
+		msg += "Silver: " + silverUsers + "\n";
+		msg += "Gold: " + goldUsers + "\n";
+		msg += "Diamond: " + diamondUsers + "\n";
+		return msg;
+	}
 }
