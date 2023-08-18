@@ -138,6 +138,8 @@ public class Controller {
 	
 		return msg;
 	}
+
+
 	public String userReport() {
 		
 		String msg = "";
@@ -175,4 +177,23 @@ public class Controller {
 	
 		return msg;
 	}
+
+	// New method
+
+	public boolean changeUserCategory(int userPosition, int newCategory) {
+		Category category = Category.SILVER;
+		if (newCategory == 2) {
+			category = Category.GOLD;
+		} else if (newCategory == 3) {
+			category = Category.DIAMOND;
+		}
+
+		User user = users[userPosition];
+		if (user != null && user instanceof Premium) {
+			((Premium) user).setCategory(category);
+			return true;
+		}
+		return false;
+	}
+
 }
