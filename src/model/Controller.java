@@ -138,6 +138,8 @@ public class Controller {
 	
 		return msg;
 	}
+
+
 	public String userReport() {
 		
 		String msg = "";
@@ -175,7 +177,9 @@ public class Controller {
 	
 		return msg;
 	}
-	//Nuevo funcionamiento
+
+	// New method
+
 	public boolean changeUserCategory(int userPosition, int newCategory) {
 		Category category = Category.SILVER;
 		if (newCategory == 2) {
